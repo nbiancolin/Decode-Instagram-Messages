@@ -55,8 +55,8 @@ int main(){
     cout << "Type in the name of the file containing the messages (WITHOUT the extension (so no .txt))" << endl;
     cout << "> " << flush;
     string filePath;
-    filePath += ".txt";
     getline(cin, filePath);
+    filePath += ".txt";
 
     ifstream inputFile(filePath);
         if (!inputFile.is_open()) {
@@ -92,6 +92,8 @@ int main(){
     cout << "File Sucessfully Written" << endl;
 
     cout << "Thanks for using the converter! Have a nice day" << endl;
+    cout << "Press enter to exit" << endl;
+    cin.get();
 
     
 
