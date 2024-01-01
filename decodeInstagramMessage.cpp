@@ -52,14 +52,17 @@ void createMsgs(ifstream &file, LinkedList* LL) {
 int main(){
     cout << "Nick's Instagram Message Decoder" << endl;
 
-    cout << "type in the name of the file containing the messages" << endl;
+    cout << "Type in the name of the file containing the messages (WITHOUT the extension (so no .txt))" << endl;
     cout << "> " << flush;
     string filePath;
+    filePath += ".txt";
     getline(cin, filePath);
 
     ifstream inputFile(filePath);
         if (!inputFile.is_open()) {
         std::cerr << "Error opening the file. Tell nick it says \" The file doesnt exist \"" << std::endl;
+        cout << "Press Enter to exit ..." << endl;
+        cin.get();
         return 1;
     }
     //my logic:
@@ -74,13 +77,13 @@ int main(){
     cout << "Creating Data Structure ... " << endl;
     createMsgs(inputFile, myLL);
     cout << "Data Structure Created." << endl;
-    myLL->display();
+    //myLL->display();
     cout << "Sorting data by timestamp ..." << endl;
     Node* temp = myLL->getHead();
     myLL->sortByTimestamp();
-    myLL->display();
+    //myLL->display();
     cout << "Data sorted." << endl;
-    cout << "Input name of output file (with no file extension)" << endl;
+    cout << "Input name of output file (Only use letters and numbers please) (with no file extension)" << endl;
     cout << "> " << flush;
     getline(cin, filePath);
     cout << "Writing to file ..." << endl;

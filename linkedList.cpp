@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 
+
 // Node class implementation
 Node::Node(const std::string& sender, const std::string& content, long long timestamp)
     : sender(sender), content(content), timestamp(timestamp), next(nullptr) {}
@@ -100,6 +101,8 @@ void LinkedList::writeToFile(std::string& path) {
 
     if (!outFile.is_open()) {
         std::cerr << "Error opening the file for writing." << std::endl;
+        std::cout << "Press Enter to exit ..." << std::endl;
+        std::cin.get();
         return;
     }
 
